@@ -1,0 +1,306 @@
+<html>
+
+<head>
+    <title>Dipendra Portfolio </title>
+    <link rel="icon" href="https://static-00.iconduck.com/assets.00/web-developer-illustration-2005x2048-fal2biag.png" type="icon/png">
+    <link rel="stylesheet" href="personal.css">
+    <script src="personal.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <link rel="stylesheet" href="contact-us.css">
+</head>
+
+</style>
+
+<body>
+    <div id="progress-bar"></div>
+    <header id="header">
+        <a href="#header"><img src="https://static-00.iconduck.com/assets.00/web-developer-illustration-2005x2048-fal2biag.png" alt=""></a>
+        <nav>
+            <div class="left">Dipendra Portfolio Website </div>
+            <div class="right">
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="3dwith-three-js.html">See me in 3D</a></li>
+                    <li><a href="#footer">Testimonial</a></li>
+                    <li><a href="#footer">Projects</a></li>
+                    <li><a href="#footer" onclick="openModal()">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- contact us button and option -->
+        <div class="modal" id="contactModal">
+          <div class="modal-content">
+              <button class="close-btn" onclick="closeModal()">&times;</button>
+              <h2 class="form-title">Get in Touch</h2>
+              
+              <form id="contactForm" onsubmit="handleSubmit(event)">
+                  <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" id="name" placeholder="Enter your name">
+                      <div class="error-message" id="nameError"></div>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" placeholder="Enter your email">
+                      <div class="error-message" id="emailError"></div>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="message">Message</label>
+                      <textarea id="message" rows="4" placeholder="Enter your message"></textarea>
+                      <div class="error-message" id="messageError"></div>
+                  </div>
+                  
+                  <button type="submit" class="submit-btn">Send Message</button>
+              </form>
+              
+              <div class="success-message" id="successMessage">
+                  Thank you! Your message has been sent successfully.
+              </div>
+          </div>
+      </div>
+    </header>
+    <main>
+        <section class="first">
+            <div class="left-area">Hi, I'm <span class="purple">Dipendra</span> <br>from nepal<br>
+                I am<br>
+                <span id="element"></span>
+            </div>
+            <div class="buttons">
+                <a href="https://pdfupload.io/docs/a6a0015e" download="Dipendra_Resume" class="btn">Download Resume</a>
+                <a href="https://github.com/tech-dipesh"><button class="btn">Visit Github</button></a>
+            </div>
+            <div class="right-area">
+                <img src="https://static.vecteezy.com/system/resources/previews/029/711/176/non_2x/developer-with-ai-generated-free-png.png"
+                    alt="">
+            </div>
+
+        </section>
+        <hr>
+        <section class="second"><span class="text-span">What my Portfolio are</span><br>
+            Previous Experience
+            <div class="box">
+                <div class="box1">
+                    <div class="box1img">
+                        <img src="https://i0.wp.com/digichefs.com/wp-content/uploads/2024/06/1.webp?w=" alt="">
+                    </div>
+                    <div class="box1text">Youtube SEO EXPERT (2020-2024)</div>
+                    <div class="box1desc">Help a some youtuber to build their channel</div>
+                </div>
+                <div class="box1">
+                    <div class="box1img">
+                        <img src="https://browntape.com/wp-content/uploads/2024/04/Influencer-Marketing.png" alt="">
+                    </div>
+                    <div class="box1text">Influencer Marketing Expert(2022-Present</div>
+                    <div class="box1desc">find perfect matched influencer</div>
+                </div>
+                <div class="box1">
+                    <div class="box1img">
+                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/content-writing-illustration-download-in-svg-png-gif-file-formats--news-article-blog-writer-journalist-loopy-01-pack-people-illustrations-6059221.png"
+                            alt="">
+                    </div>
+                    <div class="box1text">Content Writing (2021-2024)</div>
+                    <div class="box1desc">Love to write some content for different sports company</div>
+                </div>
+                <div class="box1">
+                    <div class="box1img">
+                        <img src="https://wallpapers.com/images/hd/web-developerat-work-illustration-png-9wxnnbpbatv5o2dn.png"
+                            alt="">
+                    </div>
+                    <div class="box1text">Front End Developer(2022-Present)</div>
+                    <div class="box1desc">Creae a dynamic website for my portfolio</div>
+                </div>
+            </div>
+            </div>
+
+        </section>
+        <section class="skills-section">
+            <h2>My Skills</h2>
+            <div class="skill">
+              <p>JavaScript</p>
+              <div class="progress-bar">
+                <div class="progress" style="width:80%;">80%</div>
+              </div>
+            </div>
+        
+            <div class="skill">
+              <p>React (Library)</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 60%;">60%</div>
+              </div>
+            </div>
+        
+            <div class="skill">
+              <p>Bootstrap (Framework)</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 80%;">80%</div>
+              </div>
+            </div>
+        
+            <div class="skill">
+              <p>Python</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 70%;">70%</div>
+              </div>
+            </div>
+        
+            <div class="skill">
+              <p>C</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 80%;">80%</div>
+              </div>
+            </div>
+        
+            <div class="skill">
+              <p>C++</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 75%;">75%</div>
+              </div>
+            </div>
+        
+            <div class="skill">
+              <p>Node.js</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 55%;">55%</div>
+              </div>
+            </div>
+        
+            <div class="skill">
+              <p>Next.js</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 50%;">50%</div>
+              </div>
+            </div>
+        
+            <div class="skill">
+              <p>Product Development</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 70%;">70%</div>
+              </div>
+            </div>
+        
+            <div class="skill">
+              <p>Git and Github</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 90%;">90%</div>
+              </div>
+            </div>
+        
+            <div class="skill">
+              <p>Lead Generation</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 95%;">95%</div>
+              </div>
+            </div>
+        
+            <div class="skill">
+              <p>SaaS Product Manager</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 80%;">80%</div>
+              </div>
+            </div>
+            <div class="skill">
+              <p>Three.Js</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 20%;">20%</div>
+              </div>
+            </div>
+          </section>
+    </main>
+    
+    <section class="testimonials">
+      <h2>Testimonial</h2>
+      <div class="testimonial-container">
+        <div class="testimonial active">
+          <p>"Thank you Dipesh for the work that you provided. I'm happy to have worked with him - he's responsible, good with communication, and works to fulfill the task according to the buyer's requirement. Recommended."</p>
+          <h3> Hando, South Korea</h3>
+        </div>
+        <div class="testimonial">
+          <p>" We collaborated with him on strategies to grow our social media presence from 25 million subscribers to an even larger audience. He provided significant assistance during a short-term project, contributing greatly to the task."</p>
+          <h3>LankyBox</h3>
+        </div>
+        <div class="testimonial">
+          <p>"We collaborated on content creation for a short-term project, focusing on Nepali sports, mainly cricket, to reach a global audience."</p>
+          <h3>Wicket Nepal - Owner</h3>
+        </div>
+      </div>
+    </section>
+    
+    <section class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">What services do you offer?</div>
+          <div class="faq-answer">My primary skills include junior front-end development, YouTube content growth strategy, influencer marketing, and content writing. In the future, you can hire me for major projects related to full-stack development with fully built tools.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How can we collaborate?</div>
+          <div class="faq-answer">You can easily reach me on WhatsApp, which might be the most convenient way to contact me. Alternatively, you can email me or we can arrange a meet-up around Chandigarh (India). Just to note, I’m Nepali and currently here for my studies, so if you're nearby, we can meet.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Do you take on freelance projects?</div>
+          <div class="faq-answer">Yes, I work as a freelance developer, offering services that include full-stack web development, custom website design, and integrating dynamic functionalities using JavaScript and modern frameworks.</div>
+        </div>
+      </div>
+    </section>
+    
+    <footer id="footer">
+      <div class="flex">
+          <div class="footer1">
+              <h3>Dipendra Portfolio</h3>
+          </div>
+          <div class="footer2">
+              <ul>
+                  <li><a href="#header">Home</a></li>
+                  <li><a href="3dwith-three-js.html">See me in 3D</a></li>
+                  <li><a href="#header">Projects</a></li>
+                  <li><a href="#header">Testimonial</a></li>
+                  <li><a href="#header" class="contact" onclick="openModal()">Contact Me</a></li>
+              </ul>
+          </div>
+          <div class="footer3">Social Media
+              <ul>
+                  <li><a href="https://linkedin.com/in/dipeshacademy">Linkedin</a></li>
+                  <li><a href="https://github.com/tech-dipesh">Github</a></li>
+                  <li><a href="https://leetcode.com/u/dipeshs">Leetcode</a></li>
+              </ul>
+          </div>
+          <div class="footer3">
+              <ul>
+                  <li><a href="https://wa.me/9779745400194"><img
+                              src="https://cdn-icons-png.flaticon.com/128/455/455705.png" alt=""></a></li>
+                  <li><a href="mailto:dipeshgautambusiness@gmail.com">
+                          <img src="https://cdn-icons-png.flaticon.com/128/542/542689.png" alt="Email Image" /></a></li>
+                  <li><a href="https://linkedin.com/in/dipeshacademy"><img
+                              src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" alt=""></a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="rights">All rights &#169 reserved by dipendra Sharma</div>
+  </footer>
+
+  <div class="custom-cursor"></div>
+
+<!-- this is for going top of the page -->
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+
+    <script>
+        const customCursor = document.querySelector('.custom-cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = `${e.pageX - customCursor.offsetWidth / 2}px`;
+            customCursor.style.top = `${e.pageY - customCursor.offsetHeight / 2}px`;
+        });
+    </script>
+    <!-- This is for the animated my site of one line -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Influencer Marketer', 'Youtuber Manager', 'Content Writer', 'Website Developer'],
+            typeSpeed: 50,
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+<html>
+    <head>
+    <title>Dipendra Porfolio</title>
+    <link rel="icon" href="https://static-00.iconduck.com/assets.00/web-developer-illustration-2005x2048-fal2biag.png" type="icon/png">
+</head>
+<body>
+<section class="tech-stack-3d">
+    <canvas id="tech-stack-canvas"></canvas>
+    <div class="canvas-overlay">
+        <h2>My Tech Stack Journey So far</h2>
+        <p>Please rotate to see my portfolio</p>
+    </div>
+    <div class="h3"><h3>Please Note that i am still beginner at Three.Js this is just the basic coding:)</h3></div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+
+<style>
+.tech-stack-3d {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    background: #000021;
+    overflow: hidden;
+}
+h3{
+    color: white;
+    position: absolute;
+    top: 90%;
+
+    }
+#tech-stack-canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.canvas-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.canvas-overlay h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.canvas-overlay p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .tech-stack-3d {
+        height: 40vh;
+        min-height: 300px;
+    }
+    
+    .canvas-overlay h2 {
+        font-size: 1.5rem;
+    }
+}
+</style>
+
+<!-- this is 3js which i am still trying to learn hopefully i would learn that quickly the website is help with ai and also mine intermediate learning -->
+<script>
+class TechStackScene {
+    constructor() {
+        this.scene = new THREE.Scene();
+        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        this.renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('tech-stack-canvas'),
+            antialias: true,
+            alpha: true
+        });
+        
+        this.init();
+        this.animate();
+        this.setupEventListeners();
+    }
+    
+    init() {
+        // this is for setup renderiing
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        
+        // this is my setup camera
+        this.camera.position.z = 5;
+        
+        // this is for geometry icoon
+        this.createTechStack();
+        
+        // this is for add lights
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        const pointLight = new THREE.PointLight(0xffffff, 1);
+        pointLight.position.set(5, 5, 5);
+        this.scene.add(ambientLight, pointLight);
+    }
+    
+    createTechStack() {
+        // this is for create a cube
+        const geometry = new THREE.BoxGeometry(2, 2, 2);
+        const materials = [
+            this.createTextMaterial('JavaScript'),
+            this.createTextMaterial('React'),
+            this.createTextMaterial('Node.js'),
+            this.createTextMaterial('Youtube'),
+            this.createTextMaterial('Influencer Marketer'),
+            this.createTextMaterial('Git'),
+        ];
+        
+        this.cube = new THREE.Mesh(geometry, materials);
+        this.scene.add(this.cube);
+        
+        // this is for floating the webpage
+        this.particles = new THREE.Group();
+        for (let i = 0; i < 50; i++) {
+            const particle = this.createParticle();
+            this.particles.add(particle);
+        }
+        this.scene.add(this.particles);
+    }
+    
+    createTextMaterial(text) {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 256;
+        canvas.height = 256;
+        
+        // this is for the draw
+        ctx.fillStyle = '#1a1a3a';
+        ctx.fillRect(0, 0, 256, 256);
+        
+        // Draw text
+        ctx.font = 'bold 32px Arial';
+        ctx.fillStyle = '#ffffff';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(text, 128, 128);
+        
+        const texture = new THREE.CanvasTexture(canvas);
+        return new THREE.MeshStandardMaterial({ map: texture });
+    }
+    
+    createParticle() {
+        const geometry = new THREE.SphereGeometry(0.02, 8, 8);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x6c63ff,
+            transparent: true,
+            opacity: Math.random() * 0.5 + 0.25
+        });
+        const particle = new THREE.Mesh(geometry, material);
+        
+        // create the random position for my understand
+        particle.position.set(
+            (Math.random() - 0.5) * 10,
+            (Math.random() - 0.5) * 10,
+            (Math.random() - 0.5) * 10
+        );
+        
+        // for me it is a the particale rotate
+        particle.userData.originalY = particle.position.y;
+        particle.userData.speed = Math.random() * 0.02 + 0.01;
+        
+        return particle;
+    }
+    
+    animate() {
+        requestAnimationFrame(() => this.animate());
+        
+        // it is for the rotate  
+        this.cube.rotation.x += 0.002;
+        this.cube.rotation.y += 0.003;
+        
+        //it is for the animate 
+        this.particles.children.forEach(particle => {
+            particle.position.y = particle.userData.originalY + 
+                Math.sin(Date.now() * particle.userData.speed) * 0.2;
+        });
+        
+        this.renderer.render(this.scene, this.camera);
+    }
+    
+    setupEventListeners() {
+        window.addEventListener('resize', () => {
+            this.camera.aspect = window.innerWidth / window.innerHeight;
+            this.camera.updateProjectionMatrix();
+            this.renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        
+        //make mouse interactive my understant
+        let isDragging = false;
+        let previousMousePosition = { x: 0, y: 0 };
+        
+        document.getElementById('tech-stack-canvas').addEventListener('mousedown', (e) => {
+            isDragging = true;
+            previousMousePosition = {
+                x: e.clientX,
+                y: e.clientY
+            };
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const deltaMove = {
+                    x: e.clientX - previousMousePosition.x,
+                    y: e.clientY - previousMousePosition.y
+                };
+                
+                this.cube.rotation.y += deltaMove.x * 0.005;
+                this.cube.rotation.x += deltaMove.y * 0.005;
+                
+                previousMousePosition = {
+                    x: e.clientX,
+                    y: e.clientY
+                };
+            }
+        });
+        
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+    }
+}
+//this is for the initialazition the scene when loaded.
+document.addEventListener('DOMContentLoaded', () => {
+    new TechStackScene();
+});
+</script>
+</body>
+</html>
